@@ -5,6 +5,7 @@
 clc
 clear
 
+%Get the dimensions of the cuboid
 dims = input("Insert the dimensions of cuboid LxWxH: ",'s');
 dim = split(dims,"x");
 
@@ -19,7 +20,23 @@ sa = 2*x*y + 2*x*z + 2*y*z;
 
 %mass = density * vol
 density_iron = 7860;
-mass = density_iron * vol;
+mass_iron = density_iron * vol;
 
+%Mass of gold added
+%in kg.m^2
+g_mass_area = .0185;
+g_mass = g_mass_area * sa;
+
+%Total mass of the cuboid
+mass_cuboid = g_mass + mass_iron;
+
+
+%Calculate total cost
+cost_iron = 1.75;
+cost_gold = 48000;
+total_cost = cost_iron * mass_iron + cost_gold * g_mass;
+
+fprintf("Total mass of the cuboid: " + mass_cuboid + " kg\n")
+fprintf("Total cost of the cuboid: $ " + total_cost + "\n")
 
 
