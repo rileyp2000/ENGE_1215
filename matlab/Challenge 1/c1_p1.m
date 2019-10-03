@@ -16,5 +16,6 @@ cubits = input("Please input the measurement in Ancient Roman Cubits: ");
 measure_meter = cubits * cubit;
 measure_feet = cubits * feet;
 
-fprintf(cubits + " cubits in meters is: " + measure_meter + "\n")
-fprintf(cubits + " cubits in feet is: " + measure_feet + "\n")
+%Display those converted units to the user
+fprintf(cubits + " cubits in meters is: " + measure_meter + "\n");
+fprintf(cubits + " cubits in feet is: " + measure_feet + "\n");

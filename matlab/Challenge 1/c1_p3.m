@@ -26,7 +26,7 @@ for c = 1:num_classes
 end
 
 %Calculates Semester GPA using the given formula
-final_gpa = total_gpa / hours;
+total_gpa = total_gpa / hours;
 
-fprintf("Your GPA for this semester is: " + final_gpa + "\n")
+fprintf("Your GPA for this semester is: " + total_gpa + "\n")
 
