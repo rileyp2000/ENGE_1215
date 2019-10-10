@@ -6,7 +6,7 @@ clear all
 clc
 
 % ****
-% Loads in spreadsheet data
+% Loads in spreadsheet data (From Matlab's import function)
 % ****
 
 opts = delimitedTextImportOptions("NumVariables", 2);
@@ -56,7 +56,7 @@ y = polyval(line, x);
 %Plots the curve of best fit
 plot(x,y,'r');
 
-fprintf("The line of best fit for this data is y = %.3fx + %.3f, \n \twhere x is the number of minutes on your phone and y is the grade received for that assignment\n", line);
+fprintf("The LOBF is y = %.3fx + %.3f, where x is the number of minutes on your phone and y is the grade received\n", line);
 
 hold off 
 

@@ -19,6 +19,6 @@ substance_2_rate = (batch_size + 5).*(time + 1) / 200;
 output_table = table(time, substance_1_rate, substance_2_rate);
 fn = "rileyp_SubstanceRates.xlsx";
 writetable(output_table, fn);
-fprintf("A spreadsheet has been created with your information with the filename: " + pwd + fn + "\n");
+fprintf("A spreadsheet has been created with your information with the filename: \n" + pwd + fn + "\n");
 
 

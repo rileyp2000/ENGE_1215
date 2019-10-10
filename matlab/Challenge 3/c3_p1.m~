@@ -1,0 +1,31 @@
+%Patrick Riley
+%10/10
+%This is problem 1 of challenge 3
+
+clc 
+clear all
+
+
+methane = input("Please insert the methane level in ppm: ");
+
+vent_rate = 0;
+if methane < 5000
+    vent_rate = 6;
+    
+elseif methane < 20000
+    vent_rate = 12;
+    
+elseif methane < 30000
+    vent_rate = 24;
+    
+elseif methane < 50000
+    vent_rate = 48;
+    
+else 
+    vent_rate = 96;
+    disp("WARNING WARING
+    
+end
+
+fprintf("The current ventilation rate is " + vent_rate + " ppm.\n");
+
