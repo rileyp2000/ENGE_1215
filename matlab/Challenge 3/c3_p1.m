@@ -5,12 +5,12 @@
 clc 
 clear all
 
-
+%Store the methane levels from the user
 methane = input("Please insert the methane level in ppm: ");
 
 vent_rate = 0;
 
-%Determine the ventilation rate of the system based on the methane level
+%Determine the ventilation rate of the system based on the methane level given from chart
 if methane < 5000
     vent_rate = 6;
     
