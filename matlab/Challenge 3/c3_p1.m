@@ -30,5 +30,5 @@ else
     
 end
 
-fprintf("The current ventilation rate is " + vent_rate + " ppm.\n");
+fprintf("The current ventilation rate is " + vent_rate + " m^3/s.\n");
 
