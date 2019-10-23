@@ -14,6 +14,7 @@ while signature_total < goal
     final_day = input("What day of the campaign is it? ");
     daily_sig = input("How many signatures did you collect for day " + final_day + "? ");
     signature_total = signature_total + daily_sig;
+    fprintf("On day %i you collected %i signatures", final_day, daily_sig);
 end
 
 fprintf("You met your goal of %i signatures in %i days by getting %i signatures in %i days.\n", goal, days, signature_total, final_day);

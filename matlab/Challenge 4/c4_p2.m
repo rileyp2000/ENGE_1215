@@ -21,14 +21,8 @@ weights = input("Please input the fish weights from today's haul: ");
 %g.
 %Output a detailed invoice including, the total number of each grade of fish, the total weight of each grade of fish, the total income for each grade of fish, and the total income from the entire haul
 
-%Iterates over all the weights inputted to the program from the user
-
-a = [0 0];
-b = [0 0];
-c = [0 0];
-d = [0 0];
-s = [0 0];
-n = [0 0];
+%This keeps track of the number of fish and total weight of the fish using a map
+haul_tracker = containers.Map({'S','A','B','C','D','N'},{[0 0],[0 0],[0 0],[0 0],[0 0],[0 0]});
 
 for weight = weights
     fish_grade = '';
@@ -47,4 +41,7 @@ for weight = weights
         fish_grade = 'N';
     end
 
+    %Adds the new weight of the fish to the tracker map and increments the total count for the grade
+    haul_tracker(fish_grade)(0) = haul_tracker(fish_grade)(0) + 1;
+    haul_tracker(fish_grade)(1) = haul_tracker(fish_grade)(0) + weight
 end
