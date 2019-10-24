@@ -12,36 +12,50 @@ grade = containers.Map({'S','A','B','C','D','N'},{22, 15.6, 6.3, 3.7, 1.2,0});
 %Takes in the weights from the user
 weights = input("Please input the fish weights from today's haul: ");
 
-%Need:
-%Take user input for the weights (kg) of all fish from the haul as a vector
-%e.
-%Use a loop to tally the total number and total weight of each grade fish in the haul
-%f.
-%Calculate the total income for each grade of fish. Determine the total income resulting from selling the entire haul
-%g.
-%Output a detailed invoice including, the total number of each grade of fish, the total weight of each grade of fish, the total income for each grade of fish, and the total income from the entire haul
+%This keeps track of the number of fish and total weight of the fish along with the running income
+S = [0 0 0];
+A = [0 0 0];
+B = [0 0 0];
+C = [0 0 0];
+D = [0 0 0];
+N = [0 0 0];
 
-%This keeps track of the number of fish and total weight of the fish using a map
-haul_tracker = containers.Map({'S','A','B','C','D','N'},{[0 0],[0 0],[0 0],[0 0],[0 0],[0 0]});
-
+%Loops over each weight, places them into the proper group and adjusts the tracker
 for weight = weights
     fish_grade = '';
     %Determine the grade of the fish based on its weight
     if weight > 30 
         fish_grade = 'S';
+        S = [(S(1)+1) (S(2)+ weight) (S(3) + grade(fish_grade))];
     elseif weight > 16
         fish_grade = 'A';
+        A = [(A(1)+1) (A(2)+weight) (A(3) + grade(fish_grade))];
     elseif weight > 8
         fish_grade = 'B';
+        B = [(B(1)+1) (B(2)+weight) (B(3) + grade(fish_grade))];
     elseif weight > 3
         fish_grade = 'C';
+        C = [(C(1)+1) (C(2)+weight) (C(3) + grade(fish_grade))];
     elseif weight >= 1
         fish_grade = 'D';
-    else 
+        D = [(D(1)+1) (D(2)+weight) (D(3) + grade(fish_grade))];
+    else
         fish_grade = 'N';
+        N = [(S(1)+1) (S(2)+weight) (N(3) + grade(fish_grade))];
     end
 
-    %Adds the new weight of the fish to the tracker map and increments the total count for the grade
-    haul_tracker(fish_grade)(0) = haul_tracker(fish_grade)(0) + 1;
-    haul_tracker(fish_grade)(1) = haul_tracker(fish_grade)(0) + weight
 end
+
+%Prints out an invoice for the whole haul including total income
+disp("Detailed invoice of the haul");
+total_income = S(3) + A(3) + B(3) + C(3) + D(3) + N(3);
+
+fprintf("Grade S: %i total fish, %d lbs of total weight, $%.2f in total income\n", S(1), S(2), S(3));
+fprintf("Grade A: %i total fish, %d lbs of total weight, $%.2f in total income\n", A(1), A(2), A(3));
+fprintf("Grade B: %i total fish, %d lbs of total weight, $%.2f in total income\n", B(1), B(2), B(3));
+fprintf("Grade C: %i total fish, %d lbs of total weight, $%.2f in total income\n", C(1), C(2), C(3));
+fprintf("Grade D: %i total fish, %d lbs of total weight, $%.2f in total income\n", D(1), D(2), D(3));
+fprintf("Grade N: %i total fish, %4.2d lbs of total weight, $%.2d in total income\n", N(1), N(2), N(3));
+
+
+fprintf("Total income from the call: $%.2f\n", total_income);
