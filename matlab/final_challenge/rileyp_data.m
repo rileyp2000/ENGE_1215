@@ -24,7 +24,8 @@ opts.EmptyLineRule = "read";
 
 % Import the data
 swimsuit_searches = readtable("/swimsuit.csv", opts);
-ss = readmatrix("/swimsuit.csv");
+
+disp("Data Loaded");
 
 %% Clear temporary variables
 clear opts
@@ -50,8 +51,12 @@ for month = 1:12
 
 end
 
-%bar(monthly_average,.8);
+bar(monthly_average,.6);
+hold on
 boxplot(monthly_data);
+
 xlabel("Month");
 ylabel("Average Search Interest");
 title("Average Monthly Interest for Term 'Swimsuit'");
+
+hold off
